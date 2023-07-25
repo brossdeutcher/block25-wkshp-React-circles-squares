@@ -11,28 +11,33 @@ const App = () => {
     return color;
   }
 
-  const generateCircle = () => {
-    const diameter = Math.ceil((Math.random() * 100) + 100);
-    return <div style={{height: diameter, width: diameter, backgroundColor: generateColor(), borderRadius: '50%'}}></div>
-  }
-
   const generateSquare = () => {
     const dimensions = Math.ceil((Math.random() * 100) + 100);
     return <div style={{height: dimensions, width: dimensions, backgroundColor: generateColor()}}></div>
   }
 
   return (<>
-  <section id="circles">
-    {generateCircle()}
-    {generateCircle()}
-    {generateCircle()}
-    </section>
+    <Circles colorGenerator={generateColor} />
     <section id="squares">
     {generateSquare()}
     {generateSquare()}
     {generateSquare()}
     </section>
   </>)
+}
+
+const Circles = (props) => {
+  const generateColor = props.colorGenerator;
+  console.log(generateColor);
+  const generateCircle = () => {
+    const diameter = Math.ceil((Math.random() * 100) + 100);
+    return <div style={{height: diameter, width: diameter, backgroundColor: generateColor(), borderRadius: '50%'}}></div>
+  }
+  return (<section id="circles">
+    {generateCircle()}
+    {generateCircle()}
+    {generateCircle()}
+  </section>)
 }
 
 const root = ReactDOM.createRoot(container);
