@@ -22,12 +22,16 @@ const App = () => {
   }
 
   return (<>
+  <section id="circles">
     {generateCircle()}
     {generateCircle()}
     {generateCircle()}
+    </section>
+    <section id="squares">
     {generateSquare()}
     {generateSquare()}
     {generateSquare()}
+    </section>
   </>)
 }
 
