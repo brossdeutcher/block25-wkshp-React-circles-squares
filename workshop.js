@@ -28,7 +28,6 @@ const App = () => {
 
 const Circles = (props) => {
   const generateColor = props.colorGenerator;
-  console.log(generateColor);
   const generateCircle = () => {
     const diameter = Math.ceil((Math.random() * 100) + 100);
     return <div style={{height: diameter, width: diameter, backgroundColor: generateColor(), borderRadius: '50%'}}></div>
