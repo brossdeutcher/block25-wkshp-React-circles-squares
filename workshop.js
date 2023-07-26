@@ -26,17 +26,27 @@ const App = () => {
   );
 };
 
+const onClickFunc = () => {
+  console.log(`onclick`);
+}
+onClickFunc();
+
 const Circles = (props) => {
   const generateColor = props.colorGenerator;
   const diameter = Math.ceil(Math.random() * 100 + 100);
+  const [circleColor, setColor] = React.useState(generateColor());
+  const clickEvent = () => {
+    setColor(generateColor());
+  }
   return (
     <div
       style={{
         height: diameter,
         width: diameter,
-        backgroundColor: generateColor(),
+        backgroundColor: circleColor,
         borderRadius: "50%",
       }}
+      onClick={clickEvent}
     ></div>
   );
 };
@@ -44,13 +54,18 @@ const Circles = (props) => {
 const Squares = (props) => {
   const generateColor = props.colorGenerator;
   const dimensions = Math.ceil(Math.random() * 100 + 100);
+  const [sqColor, setColor] = React.useState(generateColor());
+  const clickEvent = () => {
+    setColor(generateColor());
+  }
   return (
     <div
       style={{
         height: dimensions,
         width: dimensions,
-        backgroundColor: generateColor(),
+        backgroundColor: sqColor,
       }}
+      onClick={clickEvent}
     ></div>
   );
 };
