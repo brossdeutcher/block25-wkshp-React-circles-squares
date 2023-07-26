@@ -10,19 +10,6 @@ const App = () => {
     return color;
   };
 
-  const generateSquare = () => {
-    const dimensions = Math.ceil(Math.random() * 100 + 100);
-    return (
-      <div
-        style={{
-          height: dimensions,
-          width: dimensions,
-          backgroundColor: generateColor(),
-        }}
-      ></div>
-    );
-  };
-
   return (
     <>
       <section id="circles">
@@ -31,9 +18,9 @@ const App = () => {
         <Circles colorGenerator={generateColor} />
       </section>
       <section id="squares">
-        {generateSquare()}
-        {generateSquare()}
-        {generateSquare()}
+        <Squares colorGenerator={generateColor} />
+        <Squares colorGenerator={generateColor} />
+        <Squares colorGenerator={generateColor} />
       </section>
     </>
   );
@@ -49,6 +36,20 @@ const Circles = (props) => {
         width: diameter,
         backgroundColor: generateColor(),
         borderRadius: "50%",
+      }}
+    ></div>
+  );
+};
+
+const Squares = (props) => {
+  const generateColor = props.colorGenerator;
+  const dimensions = Math.ceil(Math.random() * 100 + 100);
+  return (
+    <div
+      style={{
+        height: dimensions,
+        width: dimensions,
+        backgroundColor: generateColor(),
       }}
     ></div>
   );
